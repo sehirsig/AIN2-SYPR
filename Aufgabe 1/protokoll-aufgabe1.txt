@@ -1,0 +1,70 @@
+sebastian@sebastian-XPS-15-9500:~/Schreibtisch/sypr-uebungen/aufgabe1$ make aufgabe1
+gcc -g -fno-stack-protector -W -Wall -std=c11 -pedantic    aufgabe1.c   -o aufgabe1
+sebastian@sebastian-XPS-15-9500:~/Schreibtisch/sypr-uebungen/aufgabe1$ ./aufgabe1
+0x7ffd5652c7dc |  4 |           int |           intzahl | 123 
+0x7ffd5652c7da |  2 |         short |      shortintzahl | 123 
+0x7ffd5652c7d0 |  8 |          long |       longintzahl | 123 
+0x7ffd5652c7c8 |  8 |     long long |   longlongintzahl | 123 
+0x7ffd5652c7c4 |  4 |          uint |          uintzahl | 123 
+0x7ffd5652c7c2 |  2 |        ushort |     ushortintzahl | 123 
+0x7ffd5652c7b8 |  8 |         ulong |      ulongintzahl | 123 
+0x7ffd5652c7b0 |  8 |     ulonglong |  ulonglongintzahl | 123 
+0x7ffd5652c7ac |  4 |         float |         floatzahl | 1.230000 
+0x7ffd5652c7a0 |  8 |        double |        doublezahl | 12.300000 
+0x7ffd5652c790 | 16 |    longdouble |    longdoublezahl | 12.300000 
+0x7ffd5652c78f |  1 |          char |           zeichen | a 
+0x7ffd5652c78e |  1 |   signed char |             sbyte | 35 
+0x7ffd5652c78d |  1 | unsigned char |             ubyte | 80 
+0x7ffd5652c78c |  1 |         _Bool |             abool | 1 
+0x7ffd5652c780 |  8 |         char* |          charstar | Hallo 
+
+PC-Datenmodell: LP64
+sebastian@sebastian-XPS-15-9500:~/Schreibtisch/sypr-uebungen/aufgabe1$ ./aufgabe1 | sort
+
+0x7ffc20c73600 |  8 |         char* |          charstar | Hallo 
+0x7ffc20c7360c |  1 |         _Bool |             abool | 1 
+0x7ffc20c7360d |  1 | unsigned char |             ubyte | 80 
+0x7ffc20c7360e |  1 |   signed char |             sbyte | 35 
+0x7ffc20c7360f |  1 |          char |           zeichen | a 
+0x7ffc20c73610 | 16 |    longdouble |    longdoublezahl | 12.300000 
+0x7ffc20c73620 |  8 |        double |        doublezahl | 12.300000 
+0x7ffc20c7362c |  4 |         float |         floatzahl | 1.230000 
+0x7ffc20c73630 |  8 |     ulonglong |  ulonglongintzahl | 123 
+0x7ffc20c73638 |  8 |         ulong |      ulongintzahl | 123 
+0x7ffc20c73642 |  2 |        ushort |     ushortintzahl | 123 
+0x7ffc20c73644 |  4 |          uint |          uintzahl | 123 
+0x7ffc20c73648 |  8 |     long long |   longlongintzahl | 123 
+0x7ffc20c73650 |  8 |          long |       longintzahl | 123 
+0x7ffc20c7365a |  2 |         short |      shortintzahl | 123 
+0x7ffc20c7365c |  4 |           int |           intzahl | 123 
+PC-Datenmodell: LP64
+sebastian@sebastian-XPS-15-9500:~/Schreibtisch/sypr-uebungen/aufgabe1$ ./aufgabe1 | sort -r
+PC-Datenmodell: LP64
+0x7ffd8bc9090c |  4 |           int |           intzahl | 123 
+0x7ffd8bc9090a |  2 |         short |      shortintzahl | 123 
+0x7ffd8bc90900 |  8 |          long |       longintzahl | 123 
+0x7ffd8bc908f8 |  8 |     long long |   longlongintzahl | 123 
+0x7ffd8bc908f4 |  4 |          uint |          uintzahl | 123 
+0x7ffd8bc908f2 |  2 |        ushort |     ushortintzahl | 123 
+0x7ffd8bc908e8 |  8 |         ulong |      ulongintzahl | 123 
+0x7ffd8bc908e0 |  8 |     ulonglong |  ulonglongintzahl | 123 
+0x7ffd8bc908dc |  4 |         float |         floatzahl | 1.230000 
+0x7ffd8bc908d0 |  8 |        double |        doublezahl | 12.300000 
+0x7ffd8bc908c0 | 16 |    longdouble |    longdoublezahl | 12.300000 
+0x7ffd8bc908bf |  1 |          char |           zeichen | a 
+0x7ffd8bc908be |  1 |   signed char |             sbyte | 35 
+0x7ffd8bc908bd |  1 | unsigned char |             ubyte | 80 
+0x7ffd8bc908bc |  1 |         _Bool |             abool | 1 
+sebastian@sebastian-XPS-15-9500:~/Schreibtisch/sypr-uebungen/aufgabe1$ make CC="g++ -fno-stack-protector" STD=c++11 clean aufgabe1
+rm -f aufgabe1 aufgabe1.o
+g++ -fno-stack-protector -W -Wall -std=c++11 -pedantic    aufgabe1.c   -o aufgabe1
+sebastian@sebastian-XPS-15-9500:~/Schreibtisch/sypr-uebungen/aufgabe1$ make cppcheck
+cppcheck --enable=warning,style --std=c11 aufgabe1.c
+Checking aufgabe1.c ...
+sebastian@sebastian-XPS-15-9500:~/Schreibtisch/sypr-uebungen/aufgabe1$ 
+
+
+ANTWORTEN:
+1. Ja, die Variablen sind in der Reihenfolge der Definition hinterlegt.
+2. Nach char*, double, unsigned long und long gibt es Lücken. Danke für das erklären dieser Frage im letzten Feedback!
+3. Es werden 96 (dezimal) Bytes Speicher belegt.
